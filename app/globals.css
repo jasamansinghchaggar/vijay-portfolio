@@ -101,7 +101,7 @@ a {
   padding-inline: 6px;
 }
 .display {
-  font-size: clamp(64px, 9.3vw, 132px);
+  font-size: clamp(64px, 8.4vw, 132px);
   letter-spacing: -0.095em;
   line-height: 0.89;
   margin: 30px 0 34px;
@@ -159,17 +159,39 @@ a {
   position: absolute;
   right: 6%;
   top: 34%;
-  width: 230px;
-  height: 230px;
-  border-radius: 50%;
-  border: 1px solid #2d2b29;
-  display: grid;
-  place-items: center;
-  color: var(--red);
-  font-size: 100px;
-  font-weight: 800;
-  letter-spacing: -0.1em;
-  transform: rotate(-13deg);
+  width: 330px;
+  height: 410px;
+  padding: 10px 10px 46px;
+  overflow: visible;
+  background: var(--cream);
+  border: 5px solid #151924;
+  box-shadow: 10px 12px 0 #151924;
+  transform: rotate(-4deg);
+  transition: transform 0.35s ease;
+  z-index: 1;
+}
+.hero-mark:hover {
+  transform: rotate(-1deg);
+}
+.hero-mark::before {
+  content: "";
+  position: absolute;
+  width: 74px;
+  height: 38px;
+  top: -25px;
+  left: 50%;
+  background: #e9b93fdd;
+  border: 1px solid #c89d2d;
+  transform: translateX(-50%) rotate(3deg);
+  z-index: -1;
+}
+.hero-mark-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: hidden;
+  object-fit: cover;
+  object-position: 78% center;
 }
 .mark-ring {
   position: absolute;
@@ -665,12 +687,18 @@ a {
     font-size: clamp(55px, 16vw, 90px);
   }
   .hero-mark {
-    width: 130px;
-    height: 130px;
+    width: 190px;
+    height: 240px;
+    padding: 7px 7px 29px;
+    border-width: 3px;
+    box-shadow: 6px 8px 0 #151924;
     right: 0;
     top: 32%;
-    font-size: 56px;
-    opacity: 0.5;
+  }
+  .hero-mark::before {
+    width: 47px;
+    height: 24px;
+    top: -16px;
   }
   .mark-ring {
     inset: 10px;

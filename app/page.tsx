@@ -72,13 +72,12 @@ export default async function Home() {
             Independent video editor <span>•</span> Mumbai / Everywhere
           </p>
           <h1 className="display reveal">
-            Raw footage,
+            From timeline,
             <br />
-            <em>real feeling.</em>
+            <em>To feeling.</em>
           </h1>
           <p className="hero-intro reveal">
-            I turn scattered clips into clear, watchable stories for creators
-            and brands with something to say.
+            Turning messy footage into scroll-stopping stories that hold attention and build an audience.
           </p>
           <div className="hero-actions reveal">
             <a className="button button-red" href="#work">
@@ -90,9 +89,7 @@ export default async function Home() {
           </div>
         </div>
         <div className="hero-mark" aria-hidden="true">
-          <div className="mark-ring" />
-          <span>V</span>
-          <small>EDIT / 2026</small>
+          <img className="hero-mark-image" src="/hero.jpeg" alt="" />
         </div>
         <div className="scroll-note">
           <span className="scroll-line" /> Scroll to explore
