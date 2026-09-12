@@ -1,7 +1,14 @@
 import postgres from "postgres";
 
 declare global { var portfolioSql: ReturnType<typeof postgres> | undefined; }
-export const sql = globalThis.portfolioSql ?? postgres(process.env.DATABASE_URL || "", { max: 1, prepare: false, idle_timeout: 20 });
+export const sql = globalThis.portfolioSql ?? postgres(process.env.DATABASE_URL || "", {
+  max: 1,
+  prepare: false,
+  idle_timeout: 20,
+  onnotice: (notice) => {
+    if (notice.code !== "42P07") console.log(notice);
+  },
+});
 if (process.env.NODE_ENV !== "production") globalThis.portfolioSql = sql;
 let schemaPromise: Promise<void> | undefined;
 
