@@ -414,7 +414,11 @@ a {
   width: 100vw;
   margin-left: calc(50% - 50vw);
   min-width: 0;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  cursor: grab;
+  touch-action: pan-x;
   mask-image: linear-gradient(
     to right,
     transparent 0,
@@ -423,13 +427,23 @@ a {
     transparent 100%
   );
 }
+.review-marquee::-webkit-scrollbar {
+  display: none;
+}
+.review-marquee:active {
+  cursor: grabbing;
+}
 .review-lane {
-  overflow: hidden;
+  overflow: visible;
 }
 .review-track {
   display: flex;
   width: max-content;
-  animation: review-marquee 34s linear infinite;
+  animation: review-marquee 7s linear infinite;
+}
+.review-marquee:hover .review-track,
+.review-marquee:focus-within .review-track {
+  animation-play-state: paused;
 }
 .review-group {
   display: flex;
@@ -704,18 +718,26 @@ a {
   .hero {
     min-height: calc(100vh - 72px);
     padding-block: 80px;
+    justify-content: flex-start;
+  }
+  .hero-copy {
+    order: 2;
   }
   .display {
     font-size: clamp(55px, 16vw, 90px);
   }
   .hero-mark {
+    position: relative;
+    order: 1;
     width: 190px;
     height: 240px;
     padding: 7px 7px 29px;
     border-width: 3px;
     box-shadow: 6px 8px 0 #151924;
-    right: 0;
-    top: 32%;
+    right: auto;
+    top: auto;
+    align-self: center;
+    margin: 22px auto 58px;
   }
   .hero-mark::before {
     width: 47px;
@@ -812,14 +834,18 @@ a {
     margin: 55px 0 0 auto;
   }
   .footer {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     padding-block: 35px;
+    align-items: start;
+    gap: 16px;
   }
   .footer-links {
-    grid-column: 1 / 3;
-    order: 3;
+    grid-column: auto;
+    order: 0;
+    flex-wrap: wrap;
+    gap: 12px 18px;
   }
   .footer small {
-    text-align: right;
+    text-align: left;
   }
 }
