@@ -48,8 +48,8 @@ export default async function Home() {
   return (
     <main>
       <nav className="nav shell" aria-label="Primary navigation">
-        <a className="wordmark" href="#top" aria-label="Vijay home">
-          <span>V</span>ijay<span className="dot">.</span>
+        <a className="wordmark" href="#top" aria-label="Viz Edits home">
+          <span>V</span>iz<span className="dot">.</span>
         </a>
         <div className="nav-links">
           <a href="#work">Work</a>
@@ -253,7 +253,7 @@ export default async function Home() {
 
       <footer className="footer shell">
         <a className="wordmark" href="#top">
-          <span>V</span>ijay<span className="dot">.</span>
+          <span>V</span>iz<span className="dot">.</span>
         </a>
         <p>Video editor / filmmaker</p>
         <div className="footer-links">
@@ -275,7 +275,7 @@ export default async function Home() {
             <MessageCircle size={16} /> WhatsApp
           </a>
         </div>
-        <small>© 2026 Vijay</small>
+        <small>© 2026 Viz Edits</small>
       </footer>
     </main>
   );
