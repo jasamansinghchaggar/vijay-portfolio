@@ -3,6 +3,7 @@ import {
   ArrowUpRight,
   Instagram,
   Mail,
+  MessageCircle,
 } from "lucide-react";
 import { ReviewForm } from "./review-form";
 import { HoverVideo } from "./hover-video";
@@ -31,18 +32,13 @@ const projects = [
   },
 ];
 
-const services = [
-  [
-    "01",
-    "Short form",
-    "Reels, Shorts and social cuts built to hold attention.",
-  ],
-  [
-    "02",
-    "Long form",
-    "YouTube, podcasts and creator stories with a point of view.",
-  ],
-  ["03", "Commercial", "Ads and brand films that make a feeling stick."],
+const aboutServices = [
+  ["01", "Video editing"],
+  ["02", "Photo editing"],
+  ["03", "Color grading"],
+  ["04", "Transitions & VFX"],
+  ["05", "Reels & Shorts"],
+  ["06", "Creative edits"],
 ];
 
 export const dynamic = "force-dynamic";
@@ -57,11 +53,16 @@ export default async function Home() {
         </a>
         <div className="nav-links">
           <a href="#work">Work</a>
-          <a href="#services">Services</a>
+          <a href="#about">About</a>
           <a href="#reviews">Reviews</a>
           <a href="#contact">Contact</a>
         </div>
-        <a className="nav-cta" href="#contact">
+        <a
+          className="nav-cta"
+          href="https://wa.me/918779386289"
+          target="_blank"
+          rel="noreferrer"
+        >
           Work with me <ArrowUpRight size={15} />
         </a>
       </nav>
@@ -69,7 +70,7 @@ export default async function Home() {
       <section className="hero shell" id="top">
         <div className="hero-copy">
           <p className="eyebrow reveal">
-            Independent video editor <span>•</span> Mumbai / Everywhere
+            Professional Video Editor <span>•</span> Mumbai / Worldwide
           </p>
           <h1 className="display reveal">
             From timeline,
@@ -123,20 +124,39 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="services section shell" id="services">
+      <section className="services section shell" id="about">
         <div className="section-head">
-          <p className="eyebrow">What I do</p>
-          <p className="section-aside">The right cut changes everything.</p>
+          <p className="eyebrow">About VIZ Edits</p>
+          <p className="section-aside">Your content. Your vision. Our editing.</p>
         </div>
-        <div className="service-list">
-          {services.map(([number, title, description]) => (
-            <div className="service-row" key={number}>
-              <span className="service-number">{number}</span>
-              <h2>{title}</h2>
-              <p>{description}</p>
-              <ArrowUpRight className="service-arrow" size={22} />
-            </div>
-          ))}
+        <div className="about-layout">
+          <div className="about-copy">
+            <h2>
+              We turn ordinary content into something
+              <br />
+              <em>worth watching.</em>
+            </h2>
+            <p>
+              At VIZ Edits, we create high-quality video and photo edits
+              designed to make your content stand out. From smooth transitions
+              and beat sync to cinematic color grading and creative visual
+              effects, we focus on every detail.
+            </p>
+            <p>
+              Whether you&apos;re a creator, athlete, brand, fashion page, or
+              business, we help bring your vision to life through editing.
+            </p>
+            <p>Let&apos;s create something that gets noticed.</p>
+          </div>
+          <div className="service-list">
+            {aboutServices.map(([number, title]) => (
+              <div className="service-row" key={number}>
+                <span className="service-number">{number}</span>
+                <h2>{title}</h2>
+                <ArrowUpRight className="service-arrow" size={22} />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -220,7 +240,12 @@ export default async function Home() {
             <em>something matter.</em>
           </h2>
         </div>
-        <a className="contact-link" href="mailto:hello@vijay.edits">
+        <a
+          className="contact-link"
+          href="https://wa.me/918779386289"
+          target="_blank"
+          rel="noreferrer"
+        >
           <span>Get in touch</span>
           <ArrowUpRight size={32} />
         </a>
@@ -232,11 +257,22 @@ export default async function Home() {
         </a>
         <p>Video editor / filmmaker</p>
         <div className="footer-links">
-          <a href="https://instagram.com" target="_blank" rel="noreferrer">
+          <a
+            href="https://instagram.com/viz_edits._77"
+            target="_blank"
+            rel="noreferrer"
+          >
             <Instagram size={16} /> Instagram
           </a>
-          <a href="mailto:hello@vijay.edits">
+          <a href="mailto:vsingh.7576@gmail.com">
             <Mail size={16} /> Email
+          </a>
+          <a
+            href="https://wa.me/918779386289"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <MessageCircle size={16} /> WhatsApp
           </a>
         </div>
         <small>© 2026 Vijay</small>

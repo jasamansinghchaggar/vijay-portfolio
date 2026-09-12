@@ -318,12 +318,34 @@ a {
 .services {
   padding-top: 35px;
 }
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  padding-top: 55px;
+}
+.about-copy h2 {
+  margin: 0 0 28px;
+  font-size: clamp(30px, 4vw, 52px);
+  line-height: 0.98;
+  letter-spacing: -0.07em;
+}
+.about-copy p {
+  max-width: 480px;
+  color: var(--muted);
+  line-height: 1.75;
+  margin: 0 0 18px;
+}
+.about-copy p:last-child {
+  color: var(--cream);
+  font-weight: 600;
+}
 .service-list {
-  margin-top: 10px;
+  margin-top: 0;
 }
 .service-row {
   display: grid;
-  grid-template-columns: 70px 1fr 1.2fr 30px;
+  grid-template-columns: 70px 1fr 30px;
   align-items: center;
   padding: 30px 0;
   border-bottom: 1px solid var(--line);
@@ -720,6 +742,7 @@ a {
     margin-top: 17px;
   }
   .project-grid,
+  .about-layout,
   .reviews-layout,
   .form-layout {
     grid-template-columns: 1fr;
