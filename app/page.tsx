@@ -3,39 +3,31 @@ import {
   ArrowUpRight,
   Instagram,
   Mail,
-  Play,
 } from "lucide-react";
 import { ReviewForm } from "./review-form";
+import { HoverVideo } from "./hover-video";
 import { getApprovedReviews } from "../lib/reviews";
 
 const projects = [
   {
     number: "01",
-    type: "Creator / Long-form",
     title: "The art of showing up",
-    accent: "#e84b39",
-    meta: "YouTube series · 12 episodes",
+    video: "/video1.mp4",
   },
   {
     number: "02",
-    type: "Brand film / Social",
     title: "Made for the in-between",
-    accent: "#b9aa91",
-    meta: "Campaign edit · 45 sec",
+    video: "/video2.mp4",
   },
   {
     number: "03",
-    type: "Podcast / Short-form",
     title: "Ideas in motion",
-    accent: "#8c98a9",
-    meta: "Content system · 30 cuts",
+    video: "/video3.mp4",
   },
   {
     number: "04",
-    type: "Fashion / Commercial",
     title: "After the flash",
-    accent: "#b85b62",
-    meta: "Launch film · 60 sec",
+    video: "/video4.mp4",
   },
 ];
 
@@ -117,22 +109,17 @@ export default async function Home() {
         <div className="project-grid">
           {projects.map((project) => (
             <article className="project-card" key={project.number}>
-              <div
-                className="project-art"
-                style={{
-                  background: `linear-gradient(135deg, ${project.accent} 0%, #171717 68%)`,
-                }}
-              >
+              <div className="project-art">
+                <HoverVideo
+                  src={project.video}
+                  label={`${project.title} video`}
+                />
                 <span className="project-number">{project.number}</span>
-                <Play className="play-icon" size={20} fill="currentColor" />
-                <div className="art-shape" />
               </div>
               <div className="project-info">
                 <div>
-                  <p className="project-type">{project.type}</p>
                   <h3>{project.title}</h3>
                 </div>
-                <p className="project-meta">{project.meta}</p>
               </div>
             </article>
           ))}
@@ -156,7 +143,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="reviews section shell flex flex-col border-amber-100" id="reviews">
+      <section className="reviews section shell flex flex-col" id="reviews">
         <div className="section-head">
           <p className="eyebrow">Client reviews</p>
           <p className="section-aside">Good work is a conversation.</p>
