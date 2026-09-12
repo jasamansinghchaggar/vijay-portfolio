@@ -3,10 +3,10 @@ import "./globals.css";
 import { Motion } from "./motion";
 
 export const metadata: Metadata = {
-  title: "Vijay — Video editor",
-  description: "Vijay shapes raw footage into content worth watching.",
+  title: "Viz — Video editor",
+  description: "Viz shapes raw footage into content worth watching.",
   openGraph: {
-    title: "Vijay — Video editor",
+    title: "Viz — Video editor",
     description: "Video editing for creators, brands and stories with something to say.",
     type: "website",
   },
