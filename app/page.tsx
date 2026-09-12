@@ -1,0 +1,262 @@
+import {
+  ArrowDownRight,
+  ArrowUpRight,
+  Instagram,
+  Mail,
+  Play,
+} from "lucide-react";
+import { ReviewForm } from "./review-form";
+import { getApprovedReviews } from "../lib/reviews";
+
+const projects = [
+  {
+    number: "01",
+    type: "Creator / Long-form",
+    title: "The art of showing up",
+    accent: "#e84b39",
+    meta: "YouTube series · 12 episodes",
+  },
+  {
+    number: "02",
+    type: "Brand film / Social",
+    title: "Made for the in-between",
+    accent: "#b9aa91",
+    meta: "Campaign edit · 45 sec",
+  },
+  {
+    number: "03",
+    type: "Podcast / Short-form",
+    title: "Ideas in motion",
+    accent: "#8c98a9",
+    meta: "Content system · 30 cuts",
+  },
+  {
+    number: "04",
+    type: "Fashion / Commercial",
+    title: "After the flash",
+    accent: "#b85b62",
+    meta: "Launch film · 60 sec",
+  },
+];
+
+const services = [
+  [
+    "01",
+    "Short form",
+    "Reels, Shorts and social cuts built to hold attention.",
+  ],
+  [
+    "02",
+    "Long form",
+    "YouTube, podcasts and creator stories with a point of view.",
+  ],
+  ["03", "Commercial", "Ads and brand films that make a feeling stick."],
+];
+
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  const reviews = await getApprovedReviews();
+  return (
+    <main>
+      <nav className="nav shell" aria-label="Primary navigation">
+        <a className="wordmark" href="#top" aria-label="Vijay home">
+          <span>V</span>ijay<span className="dot">.</span>
+        </a>
+        <div className="nav-links">
+          <a href="#work">Work</a>
+          <a href="#services">Services</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <a className="nav-cta" href="#contact">
+          Work with me <ArrowUpRight size={15} />
+        </a>
+      </nav>
+
+      <section className="hero shell" id="top">
+        <div className="hero-copy">
+          <p className="eyebrow reveal">
+            Independent video editor <span>•</span> Mumbai / Everywhere
+          </p>
+          <h1 className="display reveal">
+            Raw footage,
+            <br />
+            <em>real feeling.</em>
+          </h1>
+          <p className="hero-intro reveal">
+            I turn scattered clips into clear, watchable stories for creators
+            and brands with something to say.
+          </p>
+          <div className="hero-actions reveal">
+            <a className="button button-red" href="#work">
+              View my work <ArrowDownRight size={17} />
+            </a>
+            <a className="text-link" href="#contact">
+              Let&apos;s talk <ArrowUpRight size={16} />
+            </a>
+          </div>
+        </div>
+        <div className="hero-mark" aria-hidden="true">
+          <div className="mark-ring" />
+          <span>V</span>
+          <small>EDIT / 2026</small>
+        </div>
+        <div className="scroll-note">
+          <span className="scroll-line" /> Scroll to explore
+        </div>
+      </section>
+
+      <section className="work section shell" id="work">
+        <div className="section-head">
+          <p className="eyebrow">Selected work</p>
+          <p className="section-aside">
+            A few things I&apos;ve helped bring to life.
+          </p>
+        </div>
+        <div className="project-grid">
+          {projects.map((project) => (
+            <article className="project-card" key={project.number}>
+              <div
+                className="project-art"
+                style={{
+                  background: `linear-gradient(135deg, ${project.accent} 0%, #171717 68%)`,
+                }}
+              >
+                <span className="project-number">{project.number}</span>
+                <Play className="play-icon" size={20} fill="currentColor" />
+                <div className="art-shape" />
+              </div>
+              <div className="project-info">
+                <div>
+                  <p className="project-type">{project.type}</p>
+                  <h3>{project.title}</h3>
+                </div>
+                <p className="project-meta">{project.meta}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="services section shell" id="services">
+        <div className="section-head">
+          <p className="eyebrow">What I do</p>
+          <p className="section-aside">The right cut changes everything.</p>
+        </div>
+        <div className="service-list">
+          {services.map(([number, title, description]) => (
+            <div className="service-row" key={number}>
+              <span className="service-number">{number}</span>
+              <h2>{title}</h2>
+              <p>{description}</p>
+              <ArrowUpRight className="service-arrow" size={22} />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="reviews section shell flex flex-col border-amber-100" id="reviews">
+        <div className="section-head">
+          <p className="eyebrow">Client reviews</p>
+          <p className="section-aside">Good work is a conversation.</p>
+        </div>
+        <div className="reviews-layout">
+          <div className="reviews-intro">
+            <h2>
+              Made with people
+              <br />
+              <em>who care.</em>
+            </h2>
+            <p>
+              If we&apos;ve worked together, I&apos;d love to hear what the
+              process felt like from your side.
+            </p>
+            <a className="button button-outline" href="#review-form">
+              Leave a review <ArrowUpRight size={17} />
+            </a>
+          </div>
+          <div className="review-marquee" aria-label="Client reviews">
+            {reviews.length ? (
+              <div className="review-lane">
+                <div className="review-track">
+                  {[reviews, reviews].map((group, groupIndex) => (
+                    <div
+                      className="review-group"
+                      aria-hidden={groupIndex === 1}
+                      key={groupIndex}
+                    >
+                      {group.map((review) => (
+                        <blockquote
+                          className="review-card"
+                          key={`${groupIndex}-${review.id}`}
+                        >
+                          <span className="quote-mark">“</span>
+                          <p>{review.review}</p>
+                          <footer>
+                            <a
+                              href={`https://instagram.com/${review.instagramUsername}`}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              <Instagram size={15} /> @
+                              {review.instagramUsername}
+                            </a>
+                            <span>Verified client</span>
+                          </footer>
+                        </blockquote>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div className="review-empty">
+                <p className="quote-mark">“</p>
+                <p>Be the first to share what it was like working together.</p>
+                <a className="text-link" href="#review-form">
+                  Leave the first review <ArrowUpRight size={16} />
+                </a>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <section className="review-form-section section shell" id="review-form">
+        <ReviewForm />
+      </section>
+
+      <section className="contact section shell" id="contact">
+        <div>
+          <p className="eyebrow">Have a project in mind?</p>
+          <h2 className="display">
+            Let&apos;s make
+            <br />
+            <em>something matter.</em>
+          </h2>
+        </div>
+        <a className="contact-link" href="mailto:hello@vijay.edits">
+          <span>Get in touch</span>
+          <ArrowUpRight size={32} />
+        </a>
+      </section>
+
+      <footer className="footer shell">
+        <a className="wordmark" href="#top">
+          <span>V</span>ijay<span className="dot">.</span>
+        </a>
+        <p>Video editor / filmmaker</p>
+        <div className="footer-links">
+          <a href="https://instagram.com" target="_blank" rel="noreferrer">
+            <Instagram size={16} /> Instagram
+          </a>
+          <a href="mailto:hello@vijay.edits">
+            <Mail size={16} /> Email
+          </a>
+        </div>
+        <small>© 2026 Vijay</small>
+      </footer>
+    </main>
+  );
+}
